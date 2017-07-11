@@ -11,7 +11,11 @@ namespace LinkKeeper.API.Controllers
     [Authorize]
     public class LinksController : ApiController
     {
-        IRepository<Link> _linkRepository = new SqlLinkRepository();
+        IRepository<Link> _linkRepository;
+        public LinksController(IRepository<Link> linkRepository)
+        {
+            _linkRepository = linkRepository;
+        }
         [HttpGet]
         public IHttpActionResult Get()
         {
