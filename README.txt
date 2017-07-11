@@ -44,3 +44,6 @@ DELETE
 Headers: Authorization - "Bearer [token]" (where [token] is your token)
 http://localhost:54509/api/links/8
 
+GET
+Headers: Authorization - "Bearer [token]" (where [token] is your token)
+http://localhost:54509/api/links/filter/Work

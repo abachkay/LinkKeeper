@@ -16,7 +16,7 @@ namespace LinkKeeper.API.Controllers
         {
             _linkRepository = linkRepository;
         }
-        [HttpGet]
+        [HttpGet]        
         public IHttpActionResult Get()
         {
             try
@@ -108,6 +108,22 @@ namespace LinkKeeper.API.Controllers
                 _linkRepository.Delete(link);
                 _linkRepository.Save();
                 return Content(HttpStatusCode.OK, link);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [Route("api/links/filter/{category}")]
+        public IHttpActionResult Filter(string category)
+        {
+            try
+            {
+                var id = User.Identity.GetUserId();
+                var links = _linkRepository.GetAll().ToList().Where(l => l.ApplicationUserId == User.Identity.GetUserId() && l.Category == category);                                
+                return Content(HttpStatusCode.OK, links);                                
             }
             catch
             {

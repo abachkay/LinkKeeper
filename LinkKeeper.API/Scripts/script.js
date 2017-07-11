@@ -49,16 +49,23 @@ $('#submitRegister').click(function (e) {
     });
 });
 
-function getLinks() {        
+function getLinks() {
+    $('#loader').show();
+    var category = $('#inputFilter').val();
+    var url = '/api/Links';    
+    if (category != '') {
+        url += '/filter/' + category;
+    }
     $.ajax({
         type: 'GET',
-        url: '/api/Links',
+        url: url,
         contentType: 'application/json; charset=utf-8',
         beforeSend: function (xhr) {
             var token = document.cookie;
             xhr.setRequestHeader("Authorization", "Bearer " + token);
         }
-    }).done(function (data) {        
+    }).done(function (data) {
+        //for (var i = 0; i < 2000000000; i++) { }
         var linksTableBody = $('#linksTableBody');
         linksTableBody.html('');       
         for (var i = 0; i < data.length; i++) {            
@@ -156,5 +163,10 @@ $('#btnAddLink').click(function () {
         }
         $('#linkErrors').html(errorText);
     });
+});
+
+
+$('#inputFilter').on('change keyup paste', function () {
+    getLinks();  
 });
 
