@@ -30,7 +30,7 @@ namespace LinkKeeper.API.App_Start
 
         public static void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterType<IRepository<Link>, SqlLinkRepository>();       
+            container.RegisterType<IRepository<Link>, SqlLinkRepository>();            
         }
     }
 }

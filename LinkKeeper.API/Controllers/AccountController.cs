@@ -19,7 +19,7 @@ using LinkKeeper.API.Results;
 using LinkKeeper.Entities;
 
 namespace LinkKeeper.API.Controllers
-{
+{    
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController

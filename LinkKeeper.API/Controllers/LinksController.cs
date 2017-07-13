@@ -1,6 +1,8 @@
-﻿using LinkKeeper.DAL;
+﻿using LinkKeeper.API.App_Start;
+using LinkKeeper.DAL;
 using LinkKeeper.Entities;
 using Microsoft.AspNet.Identity;
+using Microsoft.Practices.Unity;
 using System;
 using System.Linq;
 using System.Net;
@@ -12,9 +14,9 @@ namespace LinkKeeper.API.Controllers
     public class LinksController : ApiController
     {
         IRepository<Link> _linkRepository;
-        public LinksController(IRepository<Link> linkRepository)
-        {
-            _linkRepository = linkRepository;
+        public LinksController()
+        {            
+            _linkRepository = UnityConfig.GetConfiguredContainer().Resolve<IRepository<Link>>();            
         }
         [HttpGet]        
         public IHttpActionResult Get()
