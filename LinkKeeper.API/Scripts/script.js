@@ -76,8 +76,8 @@ function getLinks() {
                 '<td><button onclick="deleteLink(' + data[i]['LinkId'] +')" class="btn btn-floating amber accent-4"><i class="material-icons">delete</i></button></td></tr>');
         }
         $('#loader').hide();
-    }).fail(function (data) {
-        location.href = '~/Content/400.html';
+        }).fail(function (data) {
+            console.log(data);
     });      
 }
 

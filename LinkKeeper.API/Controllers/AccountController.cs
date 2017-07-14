@@ -17,6 +17,7 @@ using LinkKeeper.API.Models;
 using LinkKeeper.API.Providers;
 using LinkKeeper.API.Results;
 using LinkKeeper.Entities;
+using Microsoft.Practices.Unity;
 
 namespace LinkKeeper.API.Controllers
 {    
@@ -27,6 +28,7 @@ namespace LinkKeeper.API.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
+        [InjectionConstructor]
         public AccountController()
         {
         }

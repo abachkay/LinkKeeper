@@ -14,9 +14,9 @@ namespace LinkKeeper.API.Controllers
     public class LinksController : ApiController
     {
         IRepository<Link> _linkRepository;
-        public LinksController()
+        public LinksController(IRepository<Link> linkRepository)
         {            
-            _linkRepository = UnityConfig.GetConfiguredContainer().Resolve<IRepository<Link>>();            
+            _linkRepository = linkRepository;            
         }
         [HttpGet]        
         public IHttpActionResult Get()
