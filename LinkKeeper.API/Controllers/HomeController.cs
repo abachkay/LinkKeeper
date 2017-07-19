@@ -8,35 +8,21 @@ namespace LinkKeeper.API.Controllers
         public ActionResult Index()
         {                     
             return View();
-        }
+        }        
+        [Route("links")]
         public ActionResult Links()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return RedirectToAction("Register");
-            }
-            return View();
+            return RedirectPermanent("/#!/links");
         }
-        public ActionResult Register()
-        {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return View();
-            }           
-            return RedirectToAction("Index");           
-        }        
+        [Route("login")]
         public ActionResult Login()
         {
-            if (!User.Identity.IsAuthenticated)
-            {
-                return View();
-            }
-            return RedirectToAction("Index");
+            return RedirectPermanent("/#!/login");
         }
-        public ActionResult Logout()
+        [Route("register")]
+        public ActionResult Register()
         {
-            HttpContext.GetOwinContext().Authentication.SignOut();
-            return RedirectToAction("Login");
+            return RedirectPermanent("/#!/register");
         }
     }
 }

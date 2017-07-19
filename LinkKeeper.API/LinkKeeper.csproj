@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -184,7 +184,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -236,13 +236,16 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\404.html" />
-    <Content Include="Content\400.html" />
+    <Content Include="Content\pages\404.html" />
+    <Content Include="Content\pages\400.html" />
     <Content Include="Content\materialize\css\materialize.css" />
     <Content Include="Content\materialize\css\materialize.min.css" />
     <Content Include="Content\materialize\font\material-design-icons\LICENSE.txt" />
     <Content Include="Content\materialize\font\material-design-icons\Material-Design-Icons.svg" />
-    <Content Include="favicon.ico" />
+    <Content Include="Content\pages\Register.html" />
+    <Content Include="Content\pages\Links.html" />
+    <Content Include="Content\pages\Login.html" />
+    <Content Include="Content\pages\Welcome.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
@@ -296,23 +299,37 @@
     <Content Include="Content\materialize\fonts\roboto\Roboto-Bold.woff" />
     <Content Include="Content\materialize\fonts\roboto\Roboto-Bold.ttf" />
     <Content Include="Content\materialize\fonts\roboto\Roboto-Bold.eot" />
-    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.1.1.js" />
-    <Content Include="Scripts\jquery-3.1.1.min.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.js" />
-    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\materialize\materialize.js" />
-    <Content Include="Scripts\materialize\materialize.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
-    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\libs\angular\angular-animate.js" />
+    <Content Include="Scripts\libs\angular\angular-animate.min.js" />
+    <Content Include="Scripts\libs\angular\angular-aria.js" />
+    <Content Include="Scripts\libs\angular\angular-aria.min.js" />
+    <Content Include="Scripts\libs\angular\angular-cookies.js" />
+    <Content Include="Scripts\libs\angular\angular-cookies.min.js" />
+    <Content Include="Scripts\libs\angular\angular-csp.css" />
+    <Content Include="Scripts\libs\angular\angular-loader.js" />
+    <Content Include="Scripts\libs\angular\angular-loader.min.js" />
+    <Content Include="Scripts\libs\angular\angular-message-format.js" />
+    <Content Include="Scripts\libs\angular\angular-message-format.min.js" />
+    <Content Include="Scripts\libs\angular\angular-messages.js" />
+    <Content Include="Scripts\libs\angular\angular-messages.min.js" />
+    <Content Include="Scripts\libs\angular\angular-mocks.js" />
+    <Content Include="Scripts\libs\angular\angular-parse-ext.js" />
+    <Content Include="Scripts\libs\angular\angular-parse-ext.min.js" />
+    <Content Include="Scripts\libs\angular\angular-resource.js" />
+    <Content Include="Scripts\libs\angular\angular-resource.min.js" />
+    <Content Include="Scripts\libs\angular\angular-route.js" />
+    <Content Include="Scripts\libs\angular\angular-route.min.js" />
+    <Content Include="Scripts\libs\angular\angular-sanitize.js" />
+    <Content Include="Scripts\libs\angular\angular-sanitize.min.js" />
+    <Content Include="Scripts\libs\angular\angular-scenario.js" />
+    <Content Include="Scripts\libs\angular\angular-touch.js" />
+    <Content Include="Scripts\libs\angular\angular-touch.min.js" />
+    <Content Include="Scripts\libs\angular\angular.js" />
+    <Content Include="Scripts\libs\angular\angular.min.js" />
+    <Content Include="Scripts\libs\jquery\jquery-3.1.1.js" />
+    <Content Include="Scripts\libs\jquery\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\libs\materialize\materialize.js" />
+    <Content Include="Scripts\libs\materialize\materialize.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -323,9 +340,7 @@
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Links.cshtml" />
@@ -348,10 +363,61 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\libs\angular\version.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\libs\angular\errors.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-touch.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-sanitize.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-route.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-resource.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-parse-ext.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-messages.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-message-format.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-loader.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-cookies.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-aria.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\libs\angular\angular-animate.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Welcome.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\app\linkKeeper.module.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\app\links\welcome.controller.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\app\linkKeeper.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -385,8 +451,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.3.0\build\Microsoft.Net.Compilers.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
