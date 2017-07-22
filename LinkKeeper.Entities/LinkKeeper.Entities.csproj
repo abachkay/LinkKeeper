@@ -77,9 +77,9 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="LinkKeeperDbContext.cs" />
-    <Compile Include="Migrations\201707101524496_Initial.cs" />
-    <Compile Include="Migrations\201707101524496_Initial.Designer.cs">
-      <DependentUpon>201707101524496_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201707221521333_Initial.cs" />
+    <Compile Include="Migrations\201707221521333_Initial.Designer.cs">
+      <DependentUpon>201707221521333_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,8 +89,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201707101524496_Initial.resx">
-      <DependentUpon>201707101524496_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707221521333_Initial.resx">
+      <DependentUpon>201707221521333_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

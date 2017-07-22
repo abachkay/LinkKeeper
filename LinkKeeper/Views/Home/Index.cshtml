@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    @*<base href="/" />*@
+    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>LinkKeeper</title>
+    @Styles.Render("~/bundles/css")
+    @Scripts.Render("~/bundles/angular")
+
+</head>
+<body ng-app="linkKeeperModule">
+    <nav class="indigo darken-4">
+        <header class="nav-wrapper container" ng-controller="indexController as vm">
+            <a href="/#!/" class="brand-logo">LinkKeeper</a>
+            <ul class="right">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a href="/#!/links">Links</a></li>
+                    <li>|</li>
+                    <li ng-click="vm.logout()"><a>Logout</a></li>
+                }
+                else
+                {
+                    <li><a href="/#!/login">Login</a></li>
+                    <li>|</li>
+                    <li><a href="/#!/register">Register</a></li>
+                }
+            </ul>
+        </header>
+    </nav>
+    <div class="container" >
+        <div ng-view>
+
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/materialize")
+    @Scripts.Render("~/bundles/appScripts")
+</body>
+</html>
+
+

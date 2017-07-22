@@ -16,6 +16,7 @@ namespace LinkKeeper.Entities
         [Required]
         [MaxLength(100)]
         public string Category { get; set; }
+        public bool IsFavorite { get; set; }
         public string ApplicationUserId { get; set; }
         [ForeignKey("ApplicationUserId")]
         public ApplicationUser ApplicationUser { get; set; }        
