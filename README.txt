@@ -1,4 +1,3 @@
-API Client was implemented using ASP.NET MVC.
 Database is local in App_Data folder, you need to have Sql Server 2014 localdb.
 Wihthout internet connection icons may not be displayed.
 
@@ -10,7 +9,16 @@ Example how to login:
 
 POST
 http://localhost:54509/Token
-grant_type=password&username=a@a.a&password=Aa/123 (type should be text not application/json)
+grant_type=password&username=a@a.a&password=123456 (type should be text not application/json)
+
+Examples how to register:
+
+POST
+http://localhost:54509/api/account/register
+{Email: "b@b.b",
+Password: "123456",
+ConfirmPassword:"123456"
+}
 
 Examples how to use api:
 
