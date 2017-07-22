@@ -9,20 +9,5 @@ namespace LinkKeeper.API.Controllers
         {                     
             return View();
         }        
-        [Route("links")]
-        public ActionResult Links()
-        {
-            return RedirectPermanent("/#!/links");
-        }
-        [Route("login")]
-        public ActionResult Login()
-        {
-            return RedirectPermanent("/#!/login");
-        }
-        [Route("register")]
-        public ActionResult Register()
-        {
-            return RedirectPermanent("/#!/register");
-        }
     }
 }

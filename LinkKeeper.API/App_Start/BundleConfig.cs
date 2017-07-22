@@ -8,11 +8,20 @@ namespace LinkKeeper.API
         {
             bundles.Add(new ScriptBundle("~/bundles/appScripts").Include(
                         "~/Scripts/app/linkKeeper.module.js",
-                        "~/Scripts/app/links/welcome.controller.js",
+                        "~/Scripts/app/pages/index/index.service.js",
+                        "~/Scripts/app/pages/index/index.controller.js",
+                        "~/Scripts/app/pages/welcome/welcome.controller.js",
+                        "~/Scripts/app/pages/register/register.service.js",
+                        "~/Scripts/app/pages/register/register.controller.js",
+                        "~/Scripts/app/pages/login/login.service.js",
+                        "~/Scripts/app/pages/login/login.controller.js",
+                        "~/Scripts/app/pages/links/links.service.js",
+                        "~/Scripts/app/pages/links/links.controller.js",
                         "~/Scripts/app/linkKeeper.config.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/libs/angular/angular.min.js",
+                        "~/Scripts/libs/angular/angular-cookies.min.js",
                         "~/Scripts/libs/angular/angular-route.min.js"));   
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
@@ -22,8 +31,8 @@ namespace LinkKeeper.API
                       "~/Scripts/libs/materialize/materialize.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Content/materialize/css/materialize.css",
-                      "~/Content/site.css"));
+                      "~/Content/materialize/css/materialize.min.css",
+                      "~/Content/Site.css"));
         }
     }
 }

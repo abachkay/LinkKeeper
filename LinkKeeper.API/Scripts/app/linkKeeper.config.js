@@ -8,16 +8,16 @@
                 })
                 .when('/login', {
                     templateUrl: '/Content/pages/Login.html',
-                    controller: 'welcomeController as vm'
+                    controller: 'loginController as vm'
                     })                      
                 .when('/register', {
                     templateUrl: '/Content/pages/Register.html',
-                    controller: 'welcomeController as vm'
+                    controller: 'registerController as vm'
                 })  
                 .when('/links', {
                     templateUrl: '/Content/pages/Links.html',
-                    controller: 'welcomeController as vm'
+                    controller: 'linksController as vm'
                 })  
-            $locationProvider.html5Mode(true);
+            //$locationProvider.html5Mode(true);
     });   
 })(angular);

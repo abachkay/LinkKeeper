@@ -1,1 +1,66 @@
-﻿links
+﻿<section class="section">
+    <div class="input-field" >            
+        <i class="material-icons prefix">filter_list</i>
+        <input class="filterAutocomplete" id="inputFilter" type="text" ng-model="vm.filterText" ng-change="vm.getLinks()" />
+        <label for="inputFilter">Filter by category</label>            
+    </div>    
+</section>
+<section class="section">
+    <table class="responsive-table striped">
+        <thead>
+            <tr>
+                <th>URL</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="l in vm.links">
+                <td>{{l.Url}}</td>
+                <td>{{l.Name}}</td>
+                <td>{{l.Category}}</td>
+                <td>
+                    <button class="btn btn-floating amber accent-4"><i class="material-icons" ng-click="vm.updatingLinkId=l.LinkId;vm.openModal(l.Url,l.Name,l.Category);">edit</i></button>
+                </td>
+                <td>
+                    <button class="btn btn-floating amber accent-4"><i class="material-icons" ng-click="vm.deleteLink(l.LinkId)">delete</i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+<section class="section center">
+    <button class="btn btn-floating waves-effect waves-light amber accent-4" ng-click="vm.openModal()"><i class="large material-icons">add</i></button>
+</section>
+<section class="section">
+    <div id="loader" class="cssload-thecube">
+        <div class="cssload-cube cssload-c1"></div>
+        <div class="cssload-cube cssload-c2"></div>
+        <div class="cssload-cube cssload-c4"></div>
+        <div class="cssload-cube cssload-c3"></div>
+    </div>
+</section>
+<div id="modalForLink" class="modal">
+    <div class="modal-content">
+        <div class="input-field">
+            <input type="text" id="linkUrl" placeholder="" ng-model="vm.linkUrl" />
+            <label for="linkUrl">Url</label>            
+        </div>
+        <div class="input-field">
+            <input type="text" id="linkName" placeholder="" ng-model="vm.linkName" />
+            <label for="linkName">Name</label>            
+        </div>
+        <div class="input-field">
+            <input class="filterAutocomplete" type="text" id="linkCategory" placeholder="" ng-model="vm.linkCategory" />
+            <label for="linkCategory">Category</label>          
+        </div>
+        <div class="red-text">
+            <span ng-repeat="e in vm.linkErrors">{{e}}<br /></span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="modal-action btn btn-floating amber accent-4" ng-click="vm.createOrUpdateLink()"><i class="material-icons">done</i></button>
+    </div>
+</div>

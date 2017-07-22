@@ -133,6 +133,38 @@ namespace LinkKeeper.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/links/categories")]
+        public IHttpActionResult Categories()
+        {
+            try
+            {
+                var id = User.Identity.GetUserId();
+                var categories = _linkRepository.GetAll().ToList().Where(l => l.ApplicationUserId == User.Identity.GetUserId()).Select(l=>l.Category).Distinct();
+                return Content(HttpStatusCode.OK, categories);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [Route("api/links/search/{name}")]
+        public IHttpActionResult Search(string name)
+        {
+            try
+            {
+                var id = User.Identity.GetUserId();
+                var links = _linkRepository.GetAll().ToList().Where(l => l.ApplicationUserId == User.Identity.GetUserId() && l.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0);
+                return Content(HttpStatusCode.OK, links);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
         ~LinksController()
         {
             _linkRepository.Dispose();

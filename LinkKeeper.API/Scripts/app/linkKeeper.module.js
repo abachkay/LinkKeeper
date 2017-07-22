@@ -1,3 +1,3 @@
 ﻿(function (angular) {
-    var linkKeeperModule = angular.module("linkKeeperModule", ['ngRoute']);
+    var linkKeeperModule = angular.module("linkKeeperModule", ['ngRoute', 'ngCookies']);
 })(angular);
