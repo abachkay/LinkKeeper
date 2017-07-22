@@ -384,6 +384,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LinkKeeper.BLL\LinkKeeper.BLL.csproj">
+      <Project>{CAFCFA6B-4FD2-40BB-8123-97C5D8C301E8}</Project>
+      <Name>LinkKeeper.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LinkKeeper.DAL\LinkKeeper.DAL.csproj">
       <Project>{14E70761-B8E1-41FD-A496-1CAF1CAD1E25}</Project>
       <Name>LinkKeeper.DAL</Name>

@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using LinkKeeper.DAL;
 using LinkKeeper.Entities;
+using LinkKeeper.BLL;
 
 namespace LinkKeeper.API.App_Start
 {
@@ -35,7 +36,7 @@ namespace LinkKeeper.API.App_Start
         public static void RegisterTypes(IUnityContainer container)
         {      
             container.RegisterType<IRepository<Link>, SqlLinkRepository>();
-            container.RegisterType<ApplicationUserManager, ApplicationUserManager>();                        
+            container.RegisterType<ILinksService, LinkService>(new InjectionConstructor(container.Resolve<IRepository<Link>>()));                              
         }
     }
 }

@@ -21,9 +21,7 @@
         vm.getLinks = getLinks;
         getLinks();
         getCategories();
-        $('.modal').modal(); 
-        
-         
+        $('.modal').modal();                  
         function getLinks(filterText) {      
             $('#loader').show();
             var url = 'api/Links';
@@ -39,8 +37,7 @@
                 $('#loader').hide();
                 var links = response.data;                
                 if (vm.onlyFavorite) {
-                    links = links.filter(function (element) {
-                        console.log(element.IsFavorite);
+                    links = links.filter(function (element) {                        
                         return element.IsFavorite == true;                        
                     }); 
                 } 
