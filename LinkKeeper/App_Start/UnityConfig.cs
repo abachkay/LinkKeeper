@@ -36,7 +36,7 @@ namespace LinkKeeper.API.App_Start
         public static void RegisterTypes(IUnityContainer container)
         {      
             container.RegisterType<IRepository<Link>, SqlLinkRepository>();
-            container.RegisterType<ILinksService, LinkService>(new InjectionConstructor(container.Resolve<IRepository<Link>>()));                              
+            container.RegisterType<ILinksService, LinkService>();                              
         }
     }
 }

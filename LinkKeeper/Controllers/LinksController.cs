@@ -70,11 +70,6 @@ namespace LinkKeeper.API.Controllers
         public IHttpActionResult Categories()
         {
             return Content(HttpStatusCode.OK, _linksService.GetCategories(User.Identity.GetUserId()));
-        }
-
-        ~LinksController()
-        {
-            _linksService.Dispose();
-        }
+        }  
     }
 }

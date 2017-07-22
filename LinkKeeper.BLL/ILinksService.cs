@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LinkKeeper.BLL
 {
-    public interface ILinksService: IDisposable
+    public interface ILinksService
     {
         IList<Link> GetLinks(string userId);
         Link GetLinkById(string userId,int linkId);
