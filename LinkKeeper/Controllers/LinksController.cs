@@ -1,12 +1,8 @@
-﻿using LinkKeeper.API.App_Start;
-using LinkKeeper.API.Filters;
+﻿using LinkKeeper.API.Filters;
 using LinkKeeper.BLL;
 using LinkKeeper.DAL;
 using LinkKeeper.Entities;
 using Microsoft.AspNet.Identity;
-using Microsoft.Practices.Unity;
-using System;
-using System.Linq;
 using System.Net;
 using System.Web.Http;
 
@@ -17,9 +13,9 @@ namespace LinkKeeper.API.Controllers
     public class LinksController : ApiController
     {        
         ILinksService _linksService;
-        public LinksController(ILinksService linksService)
-        {                        
-            _linksService = linksService;
+        public LinksController()
+        {
+            _linksService =  new LinkService(new SqlLinkRepository());
         }
         [HttpGet]        
         public IHttpActionResult Get()
@@ -71,5 +67,10 @@ namespace LinkKeeper.API.Controllers
         {
             return Content(HttpStatusCode.OK, _linksService.GetCategories(User.Identity.GetUserId()));
         }  
+
+        ~LinksController()
+        {
+            _linksService.Dispose();
+        }
     }
 }
