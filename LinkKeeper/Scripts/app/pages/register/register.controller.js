@@ -1,5 +1,7 @@
 ﻿(function (angular) {    
-    angular.module("linkKeeperModule")
+    angular
+        .module("linkKeeperModule")
+        .controller("indexController")
         .controller("registerController", registerController);
     registerController.$inject = ['$scope','registerService'];
     function registerController($scope, registerService) {
