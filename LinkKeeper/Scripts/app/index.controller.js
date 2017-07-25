@@ -9,6 +9,7 @@
         vm.secondLinkText = 'Register';        
         vm.firstLinkClick = login;
         vm.secondLinkClick = register;        
+        init();
 
         function init() {
             if ($cookies.get('access_token')) {

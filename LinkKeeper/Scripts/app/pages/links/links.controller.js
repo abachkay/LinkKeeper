@@ -1,7 +1,6 @@
 ﻿(function (angular) {    
     angular
-        .module("linkKeeperModule")
-        .controller("indexController")
+        .module("linkKeeperModule")        
         .controller("linksController", linksController);
     linksController.$inject = ['$scope','linksService','$cookies'];
     function linksController($scope, linksService, $cookies) {   
