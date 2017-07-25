@@ -18,6 +18,7 @@
                 .when('/links', {
                     templateUrl: '/Content/pages/Links.html',
                     controller: 'linksController as vm'
-                })              
+                })
+            //$locationProvider.html5mode(true);
     });   
 })(angular);

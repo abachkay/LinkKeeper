@@ -29,13 +29,13 @@
             location.href = '/#!/links';
         }
         function logout() {
-            indexService.logout($cookies.get('access_token')).then(function (response) {
-                $cookies.remove('access_token');
-                vm.firstLinkText = 'Login';
-                vm.secondLinkText = 'Register';
-                vm.firstLinkClick = login;
-                vm.secondLinkClick = register;   
-                location.href = '/#!/login';
+            $cookies.remove('access_token');
+            vm.firstLinkText = 'Login';
+            vm.secondLinkText = 'Register';
+            vm.firstLinkClick = login;
+            vm.secondLinkClick = register;
+            location.href = '/#!/login';
+            indexService.logout($cookies.get('access_token')).then(function (response) {                
             }, function (response) {
                 console.log(response);
             });            
