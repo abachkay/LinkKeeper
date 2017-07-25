@@ -66,11 +66,19 @@ namespace LinkKeeper.API.Controllers
         public IHttpActionResult Categories()
         {
             return Content(HttpStatusCode.OK, _linksService.GetCategories(User.Identity.GetUserId()));
-        }  
+        }
 
-        ~LinksController()
+        protected override void Dispose(bool disposing)
         {
-            _linksService.Dispose();
+            if (disposing)
+            {
+                if (_linksService != null)
+                {
+                    _linksService.Dispose();
+                    _linksService = null;
+                }
+            }
+            base.Dispose(disposing);
         }
     }
 }
