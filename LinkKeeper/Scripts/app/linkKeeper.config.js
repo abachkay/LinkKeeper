@@ -1,5 +1,6 @@
 ﻿(function (angular) {
-    angular.module("linkKeeperModule")
+    angular
+        .module("linkKeeperModule")
         .config(function ($routeProvider, $locationProvider) {            
             $routeProvider            
                 .when('/', {
@@ -17,7 +18,6 @@
                 .when('/links', {
                     templateUrl: '/Content/pages/Links.html',
                     controller: 'linksController as vm'
-                })  
-            //$locationProvider.html5Mode(true);
+                })              
     });   
 })(angular);

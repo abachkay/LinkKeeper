@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html >
 <head>
     @*<base href="/" />*@
     <meta charset="utf-8" />
@@ -9,12 +9,15 @@
     @Scripts.Render("~/bundles/angular")
 
 </head>
-<body ng-app="linkKeeperModule">
+<body ng-app="linkKeeperModule" ng-controller="indexController as vm">
     <nav class="indigo darken-4">
-        <header class="nav-wrapper container" ng-controller="indexController as vm">
+        <header class="nav-wrapper container">
             <a href="/#!/" class="brand-logo">LinkKeeper</a>
-            <ul class="right">
-                @if (User.Identity.IsAuthenticated)
+            <ul class="right" >
+                <li><a ng-click="vm.firstLinkClick()">{{vm.firstLinkText}}</a></li>
+                <li>|</li>
+                <li><a ng-click="vm.secondLinkClick()">{{vm.secondLinkText}}</a></li>
+                @*@if (User.Identity.IsAuthenticated)
                 {
                     <li><a href="/#!/links">Links</a></li>
                     <li>|</li>
@@ -25,7 +28,7 @@
                     <li><a href="/#!/login">Login</a></li>
                     <li>|</li>
                     <li><a href="/#!/register">Register</a></li>
-                }
+                }*@
             </ul>
         </header>
     </nav>

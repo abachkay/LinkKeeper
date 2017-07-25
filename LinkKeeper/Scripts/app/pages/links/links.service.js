@@ -1,5 +1,6 @@
 ﻿(function (angular) {
-    angular.module("linkKeeperModule")
+    angular
+        .module("linkKeeperModule")
         .factory("linksService", linksService);
     linksService.$inject = ['$http'];
     function linksService($http) {

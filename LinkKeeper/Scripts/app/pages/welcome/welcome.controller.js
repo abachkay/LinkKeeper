@@ -1,5 +1,6 @@
 ﻿(function (angular) {
-    angular.module("linkKeeperModule")
+    angular
+        .module("linkKeeperModule")        
         .controller("welcomeController", welcomeController);    
     welcomeController.$inject = ['$scope','$cookies']
     function welcomeController($scope,$cookies) {        
