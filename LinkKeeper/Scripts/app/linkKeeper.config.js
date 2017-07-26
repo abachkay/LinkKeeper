@@ -1,24 +1,29 @@
 ﻿(function (angular) {
     angular
         .module("linkKeeperModule")
-        .config(function ($routeProvider, $locationProvider) {            
-            $routeProvider            
-                .when('/', {
-                    templateUrl: '/Content/pages/Welcome.html',
-                    controller: 'welcomeController as vm'
-                })
-                .when('/login', {
-                    templateUrl: '/Content/pages/Login.html',
-                    controller: 'loginController as vm'
-                    })                      
-                .when('/register', {
-                    templateUrl: '/Content/pages/Register.html',
-                    controller: 'registerController as vm'
-                })  
-                .when('/links', {
-                    templateUrl: '/Content/pages/Links.html',
-                    controller: 'linksController as vm'
-                })
-            //$locationProvider.html5mode(true);
+        .config(function ($stateProvider, $locationProvider) {            
+            $stateProvider.state('welcome', {
+                url: '/',
+                templateUrl: '/Content/pages/welcome.html',
+                controller: 'welcomeController',
+                controllerAs: 'vm'
+            }).state('links', {
+                url: '/links',
+                templateUrl: '/Content/pages/links.html',
+                controller: 'linksController',
+                controllerAs: 'vm'
+            }).state('login', {
+                url: '/login',
+                templateUrl: '/Content/pages/login.html',
+                controller: 'loginController',
+                controllerAs: 'vm'
+            }).state('register', {
+                url: '/register',
+                templateUrl: '/Content/pages/register.html',
+                controller: 'registerController',
+                controllerAs: 'vm'
+            });          
+            //$locationProvider.hashPrefix('!');
+            //$locationProvider.html5Mode(true);
     });   
 })(angular);

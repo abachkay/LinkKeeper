@@ -12,6 +12,9 @@
         init();
 
         function init() {
+            if (location.pathname == '/') {
+                location.href = '/#!/';
+            }
             if ($cookies.get('access_token')) {
                 vm.firstLinkText = 'Links';
                 vm.secondLinkText = 'Logout';

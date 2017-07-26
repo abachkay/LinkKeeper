@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html >
-<head>
-    @*<base href="/" />*@
+<head>    
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>LinkKeeper</title>
@@ -16,26 +15,12 @@
             <ul class="right" >
                 <li><a ng-click="vm.firstLinkClick()">{{vm.firstLinkText}}</a></li>
                 <li>|</li>
-                <li><a ng-click="vm.secondLinkClick()">{{vm.secondLinkText}}</a></li>
-                @*@if (User.Identity.IsAuthenticated)
-                {
-                    <li><a href="/#!/links">Links</a></li>
-                    <li>|</li>
-                    <li ng-click="vm.logout()"><a>Logout</a></li>
-                }
-                else
-                {
-                    <li><a href="/#!/login">Login</a></li>
-                    <li>|</li>
-                    <li><a href="/#!/register">Register</a></li>
-                }*@
+                <li><a ng-click="vm.secondLinkClick()">{{vm.secondLinkText}}</a></li>              
             </ul>
         </header>
     </nav>
     <div class="container" >
-        <div ng-view>
-
-        </div>
+        <ui-view></ui-view>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/materialize")

@@ -359,6 +359,7 @@
     <Content Include="Scripts\libs\angular\angular-scenario.js" />
     <Content Include="Scripts\libs\angular\angular-touch.js" />
     <Content Include="Scripts\libs\angular\angular-touch.min.js" />
+    <Content Include="Scripts\libs\angular\angular-ui-router.min.js" />
     <Content Include="Scripts\libs\angular\angular.js" />
     <Content Include="Scripts\libs\angular\angular.min.js" />
     <Content Include="Scripts\libs\jquery\jquery-3.1.1.js" />

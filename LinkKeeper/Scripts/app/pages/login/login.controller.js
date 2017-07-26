@@ -13,8 +13,7 @@
         function login() {
             loginService.login(vm.email, vm.password).then(function (response) {                
                 $cookies.put('access_token', response.data.access_token);
-                $scope.$emit('loginEvent');
-                //location.href = '/';
+                $scope.$emit('loginEvent');                
             }, function (response) {
                 vm.errors = 'Invalid email or password.';
             });          

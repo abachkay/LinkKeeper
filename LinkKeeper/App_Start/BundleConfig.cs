@@ -22,7 +22,8 @@ namespace LinkKeeper.API
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/libs/angular/angular.min.js",
                         "~/Scripts/libs/angular/angular-cookies.min.js",
-                        "~/Scripts/libs/angular/angular-route.min.js"));   
+                        "~/Scripts/libs/angular/angular-route.min.js",
+                        "~/Scripts/libs/angular/angular-ui-router.min.js"));   
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/libs/jquery/jquery-3.1.1.min.js"));   
