@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -17,7 +16,6 @@ using LinkKeeper.API.Models;
 using LinkKeeper.API.Providers;
 using LinkKeeper.API.Results;
 using LinkKeeper.Entities;
-using Microsoft.Practices.Unity;
 
 namespace LinkKeeper.API.Controllers
 {    
@@ -27,8 +25,7 @@ namespace LinkKeeper.API.Controllers
     {
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
-
-        [InjectionConstructor]
+      
         public AccountController()
         {
         }
